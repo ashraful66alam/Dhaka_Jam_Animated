@@ -20,6 +20,7 @@ body{
     align-items: center;
     justify-content: center;
     /* border-radius: 50px; */
+    opacity: 50%;
 
 }
 .AR::before{
@@ -28,8 +29,10 @@ body{
     font-size: 6vh;    
     color: 333;
     padding: 1.5vw;
-    animation: Text_animate 6s linear infinite;
-    border-radius: 50%;
+    animation: Text_animate 10s linear infinite;
+    border-radius: 30%;
+    z-index: 1;
+
 }
 @keyframes Text_animate {
     0%{
@@ -56,7 +59,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: trans_road 16s linear infinite;
+    overflow: hidden;
+
 }
+
+@keyframes trans_road{
+    0%{
+        transform: rotate(360deg);
+    }
+    
+
+}
+
 .road::before{
     content: "";
     position: absolute;
@@ -67,7 +82,7 @@ body{
     animation: animate_road .1s linear infinite ;
 
 }
-@keyframes animate_road 
+@keyframes animate_road
 {
     0%{
         background-position: 60px 0;
@@ -164,7 +179,7 @@ body{
     text-transform: uppercase;
     letter-spacing: .1em;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.644);
-    z-index: 5;
+    z-index: 4;
 }
 .taxi span b{
     position: absolute;
