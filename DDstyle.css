@@ -1,0 +1,251 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: gainsboro;
+}
+.AR{
+    display: flex;
+    /* background: rgb(25, 25, 78); */
+    width: 50vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 50px; */
+
+}
+.AR::before{
+    content: "AR";
+    color: wheat;
+    font-size: 6vh;    
+    color: 333;
+    padding: 1.5vw;
+    animation: Text_animate 6s linear infinite;
+    border-radius: 50%;
+}
+@keyframes Text_animate {
+    0%{
+        transform: translateX(50vw) translateY(0px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateX(-50vw) translateY(0px);
+    }
+
+    0%   {background-color: red;}
+    50%  {background-color: green;}
+    100% {background-color: blue;}
+}
+.road{
+    background-color: #333;
+    width: 700px;
+    height: 150px;
+    border-radius: 75px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.road::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgb(49, 107, 109) , rgb(76, 76, 204) 50%, transparent 50%);
+    background-size: 60px;
+    animation: animate_road .1s linear infinite ;
+
+}
+@keyframes animate_road 
+{
+    0%{
+        background-position: 60px 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
+.taxi{
+    position: absolute;
+    background: #f4b603;
+    height: 80px;
+    width: 200px;
+    left: 50px;
+    z-index: 3;
+    border-radius: 10px;
+    box-shadow: -10px 10px #00000da9;
+    animation: animate_taxi 4s linear infinite;
+    animation-delay: 1s;
+
+}
+.taxi:nth-child(2){
+    background: black;
+    left: initial;
+    right: 100px;
+    z-index: 2;
+    animation: animate_taxi 6s linear infinite;
+}
+@keyframes animate_taxi  {
+   
+    0%{
+        transform: translateX(0px) translateY(0px);
+    }
+    25%{
+        transform: translateX(30px) translateY(20px);
+    }
+    50%{
+        transform: translateX(0px) translateY(0px);
+    }
+    75%{
+        transform: translateX(20px) translateY(-20px);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px);
+    }
+   
+    
+}
+
+
+.taxi::before{
+    content: " ";
+    position: absolute;
+    width: 6px;
+    height: 15px;
+    background: orangered;
+    top: 12px;
+    left: 2px;
+    box-shadow: 0 42px orangered;
+    border-radius: 10px;
+}
+
+.taxi::after{
+    content: " ";
+    position: absolute;
+    width: 6px;
+    height: 15px;
+    background: gainsboro;
+    top: 10px;
+    right: 2px;
+    box-shadow: 0 45px gainsboro;
+    border-radius: 10px;
+
+}
+.taxi span{
+    position: absolute;
+    background: black;
+    inset: 5px 10px;
+    background: #ffc929;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.taxi span::before{
+    content: "taxi";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg) ;
+    background: whitesmoke;
+    font-size: .8em;
+    font-weight: 800;
+    padding: 2%;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.644);
+    z-index: 5;
+}
+.taxi span b{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    inset: 0px 30px;
+    border-radius: 10px;
+}
+
+.taxi span b:before{
+    content: " ";
+    position: absolute;
+    inset: 6px 25px;
+    background-color: #fdd206;
+    border-radius: 5px;
+}
+
+.taxi span b:after{
+    content: " ";
+    position: absolute;
+    inset: 0px 58px;
+    background-color: #fdd206;
+}
+.taxi span i{
+    position: absolute;
+    inset: 0;
+}
+.taxi span i::before{
+    content: " ";
+    position: absolute;
+    height: 5px;
+    width: 40px;
+    top: 7px;
+    left: 20px;
+    background-color: #fdd206;
+    transform: rotate(15deg);
+    transform-origin: right;
+    box-shadow: 100px 35px #fdd206;
+}
+.taxi span i::after{
+    content: " ";
+    position: absolute;
+    height: 5px;
+    width: 40px;
+    bottom: 7px;
+    left: 20px;
+    background-color: #fdd206;
+    transform: rotate(-15deg);
+    transform-origin: right;
+    box-shadow: 100px -35px #fdd206;
+
+}
+.taxi .light_beam{
+    position: absolute;
+    top: 5px;
+    right: -2px;
+    width: 10px;
+    height: 70px;
+    border-radius: 15px;
+    background: #0002;
+}
+
+.taxi .light_beam::before{
+    content: " ";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 150px;
+    height: 16px;
+    background: linear-gradient(90deg,#fff6,transparent);
+    transform-origin: left;
+    transform:  perspective(150px) rotateY(-50deg);
+}
+
+.taxi .light_beam::after{
+    content: " ";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 150px;
+    height: 16px;
+    background: linear-gradient(90deg,#fff6,transparent);
+    transform-origin: left;
+    transform:  perspective(150px) rotateY(-50deg);
+}
